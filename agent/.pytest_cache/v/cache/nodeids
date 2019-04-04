@@ -1,0 +1,7 @@
+[
+  "test_agent.py::MMTest::test_calculate_quotes",
+  "test_agent.py::MMTest::test_evaluate_outstanding_orders",
+  "test_agent.py::MMTest::test_order_statistics",
+  "test_agent.py::MMTest::test_skew_ticks",
+  "test_agent.py::MMTest::test_trade_directional_ratio"
+]
