@@ -18,7 +18,7 @@ Do create a virtual environment (`python=3.6`), and install:
 - edit the files `config.py` and `config_prod.py` 
 - change the current security in the main of `trader/trader.py`. Do adjust tick size accordingly in the agent parameters if you do (and yes, it's quirky)
 
-Then, simply run with `python trader/trader.py`
+Then, simply run with `python trader.py`
 
 ## Notes
 - Bitmex does NOT like machine-gun orders. Allow a relatively high size for each order, or get marked as spam (do not use on your main account with real money)  
