@@ -320,9 +320,16 @@ class MM:
             #print("in flicker loop")
             self.debug("cur orders {}".format(cur_orders))
             flt_fun = lambda x: float(x['price'])
-            bb = sorted(cur_orders['bids'], key= flt_fun, reverse=True)[0]
-            ba = sorted(cur_orders['asks'], key= flt_fun)[0]
+            try:
+                bb = sorted(cur_orders['bids'], key= flt_fun, reverse=True)[0]
+            except IndexError:
+                bb= None
+            try:
+                ba = sorted(cur_orders['asks'], key= flt_fun)[0]
+            except IndexError:
+                ba = None
             self.debug("ba {} | bb {}".format(str(bb), str(ba)))
+
 
             if self.get_inventory() >= 0:
                 #if ivnentory is positive, we only concern ourselves with maybe removing some ask
