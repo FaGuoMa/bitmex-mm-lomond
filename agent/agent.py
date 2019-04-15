@@ -333,7 +333,10 @@ class MM:
 
             if self.get_inventory() >= 0:
                 #if ivnentory is positive, we only concern ourselves with maybe removing some ask
-                self.debug("ba price {} | bbo {} | equal {}".format(ba['price'],red(self.bbo(lvl=5)['ask'][0]), ba['price'] == red(self.bbo(lvl=5)['ask'][0])))
+                try:
+                    self.debug("ba price {} | bbo {} | equal {}".format(ba['price'],red(self.bbo(lvl=5)['ask'][0]), ba['price'] == red(self.bbo(lvl=5)['ask'][0])))
+                except Exception as e:
+                    self.debug("debugger error {} , probable cause BBO @ {}".format(e, self.bbo(lvl=5)))
                 if ba['price'] == red(self.bbo(lvl=5)['ask'][0]):
                     #print("in flicker ask remove")
                     self.debug("ba t mkt {} | ba q pos {}".format(ba['t_market'] > self.grace_time_q ,ba['q_pos'] > self.q_ratio_threshold))
@@ -356,7 +359,10 @@ class MM:
 
             if self.get_inventory() <= 0:
                 #if ivnentory is negative, we only concern ourselves with maybe removing some bid
-                self.debug("bb price {} | bbo {} | equal {}".format(bb['price'],red(self.bbo(lvl=5)['bid'][0]), bb['price'] == red(self.bbo(lvl=5)['bid'][0])))
+                try:
+                    self.debug("bb price {} | bbo {} | equal {}".format(bb['price'],red(self.bbo(lvl=5)['bid'][0]), bb['price'] == red(self.bbo(lvl=5)['bid'][0])))
+                except Exception as e:
+                    self.debug("debugger error {} , probable cause BBO @ {}".format(e, self.bbo(lvl=5)))
                 if bb['price'] == red(self.bbo(lvl=5)['bid'][0]):
                     #print("in flicker bid remove")
                     self.debug("bb t mkt {} | bb q pos {}".format(bb['t_market'] > self.grace_time_q ,bb['q_pos'] > self.q_ratio_threshold))
